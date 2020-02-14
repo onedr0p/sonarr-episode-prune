@@ -31,7 +31,7 @@ jobs:
       - name: Run Buildx
         run: |
           docker buildx build \
-            -t onedr0p/sonarr-episode-prune:master
+            -t onedr0p/sonarr-episode-prune:master \
             --platform linux/amd64,linux/arm/v7,linux/arm64 \
-            -f Dockerfile
+            -f Dockerfile \
             --push .
