@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  sonarr-episode-prune:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
