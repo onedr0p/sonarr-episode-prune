@@ -1,5 +1,7 @@
 # sonarr-episode-prune
 
+https://hub.docker.com/r/onedr0p/sonarr-episode-prune
+
 Delete episodes from specified series in Sonarr. Useful for shows that air daily.
 
 ## Usage
