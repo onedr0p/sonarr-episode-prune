@@ -1,4 +1,4 @@
-name: ci
+name: project
 on:
   push:
     branches: master
@@ -23,13 +23,10 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - uses: rlespinasse/github-slug-action@master
       - name: Build Container Image
         run: |
           docker buildx build \
-            -t onedr0p/sonarr-episode-prune:${BRANCH_TAG_REF} \
+            -t onedr0p/sonarr-episode-prune:${GITHUB_REF##*/} \
             --platform linux/amd64,linux/arm/v7,linux/arm64 \
             -f Dockerfile \
             --push .
-        env:
-          BRANCH_TAG_REF: ${{ env.GITHUB_REF_SLUG }}
